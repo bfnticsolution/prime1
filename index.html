@@ -1,0 +1,1731 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PREMIUM Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Reset et base */
+:root {
+    --primary-color: #4a6bff;
+    --secondary-color: #ff6b6b;
+    --dark-color: #2c3e50;
+    --light-color: #f8f9fa;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: var(--light-color);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Header */
+header {
+    background-color: var(--dark-color);
+    color: white;
+    padding: 20px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo h1 {
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.logo span {
+    color: var(--primary-color);
+}
+
+.logo p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+/* Hero section */
+.hero {
+    text-align: center;
+    padding: 60px 0;
+    background: linear-gradient(135deg, rgba(74,107,255,0.1) 0%, rgba(255,107,107,0.1) 100%);
+    border-radius: 10px;
+    margin: 30px 0;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: var(--dark-color);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Apps grid */
+.apps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    margin: 40px 0;
+}
+
+.app-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.app-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.app-image {
+    height: 200px;
+    overflow: hidden;
+}
+
+.app-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.app-card:hover .app-image img {
+    transform: scale(1.05);
+}
+
+.app-info {
+    padding: 20px;
+}
+
+.app-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: var(--dark-color);
+}
+
+.app-info p {
+    color: #666;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.app-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.price {
+    font-weight: bold;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+.version {
+    background-color: #eee;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background-color 0.3s;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #3a5bef;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* About section */
+.about {
+    margin: 60px 0;
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: var(--dark-color);
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.feature {
+    padding: 30px 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.feature i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.feature h3 {
+    margin-bottom: 10px;
+    color: var(--dark-color);
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-color);
+    color: white;
+    padding: 50px 0 0;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.footer-section h3 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.footer-section p, .footer-section li {
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+.footer-section a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: var(--primary-color);
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+.social-icons a:hover {
+    background-color: var(--primary-color);
+}
+
+.copyright {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: auto;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.modal.show {
+    display: block;
+    opacity: 1;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    animation: modalOpen 0.4s;
+}
+
+@keyframes modalOpen {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+    transition: color 0.3s;
+}
+
+.close-modal:hover {
+    color: var(--danger-color);
+}
+
+.modal-body {
+    padding: 20px 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    header {
+        text-align: center;
+    }
+
+    nav ul {
+        justify-content: center;
+        margin-top: 15px;
+    }
+
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .apps-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+}
+/* Styles pour les catégories */
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+    padding: 10px 0;
+}
+
+.category-btn {
+    padding: 8px 15px;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.category-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.category-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.app-meta .category {
+    background-color: rgba(74, 107, 255, 0.1);
+    color: var(--primary-color);
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+}
+
+.no-apps {
+    grid-column: 1/-1;
+    text-align: center;
+    padding: 40px;
+    color: #666;
+}
+
+/* Optimisation des images */
+.app-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+/* Mise en page responsive */
+@media (max-width: 600px) {
+    .categories {
+        justify-content: center;
+    }
+    
+    .app-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+}
+ /* Styles pour le bouton WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulse 2s infinite;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+            animation: none;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+        
+        .whatsapp-icon {
+            margin-top: 4px;
+        }
+        /* Styles pour la section de contact */
+.contact-promo {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 30px;
+    margin-top: 40px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.contact-promo h3 {
+    color: #2c3e50;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.contact-promo p {
+    color: #7f8c8d;
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+}
+
+.whatsapp-contact-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 25px;
+    background-color: #25d366;
+    color: white;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+.whatsapp-contact-btn:hover {
+    background-color: #128C7E;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
+}
+
+.whatsapp-contact-btn i {
+    font-size: 1.5rem;
+    margin-right: 10px;
+}
+.payment-container {
+    width: 100%;
+    margin: 20px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.download-container {
+    width: 100%;
+    margin: 20px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+}
+/* Styles spécifiques pour les modals légaux */
+#legalModal .modal-content,
+#cgvModal .modal-content,
+#privacyModal .modal-content {
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+/* Style pour les listes dans les modals */
+.modal-body ul {
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+.modal-body li {
+    margin-bottom: 8px;
+}
+/* Styles pour les modals */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    overflow: auto;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.modal.show {
+    display: block;
+    opacity: 1;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 800px;
+    position: relative;
+    animation: modalOpen 0.4s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes modalOpen {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+    transition: color 0.3s;
+}
+
+.close-modal:hover {
+    color: #ff6b6b;
+}
+
+.modal-body {
+    padding: 20px 0;
+}
+
+.modal-body h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    border-bottom: 2px solid #4a6bff;
+    padding-bottom: 10px;
+}
+
+.modal-body p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.modal-body strong {
+    color: #2c3e50;
+}
+
+.modal-body ul {
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+.modal-body li {
+    margin-bottom: 8px;
+    color: #555;
+}
+
+/* Styles spécifiques pour les sections dans les modals */
+.modal-body section {
+    margin-bottom: 20px;
+}
+
+.modal-body section h3 {
+    color: #4a6bff;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+/* Styles pour les boutons dans les modals */
+.modal-body .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4a6bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background-color 0.3s;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.modal-body .btn:hover {
+    background-color: #3a5bef;
+}
+
+/* Styles pour les listes */
+.modal-body ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.modal-body ul li {
+    margin-bottom: 8px;
+}
+
+/* Styles pour les paragraphes importants */
+.modal-body .important {
+    background-color: #fff8e1;
+    padding: 15px;
+    border-left: 4px solid #ffc107;
+    margin: 20px 0;
+}
+
+.modal-body .important p {
+    margin-bottom: 0;
+}
+/* Styles pour les modals */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    overflow: auto;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.modal.show {
+    display: block;
+    opacity: 1;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 800px;
+    position: relative;
+    animation: modalOpen 0.4s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes modalOpen {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+    transition: color 0.3s;
+}
+
+.close-modal:hover {
+    color: #ff6b6b;
+}
+
+.modal-body {
+    padding: 20px 0;
+}
+
+.modal-body h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    border-bottom: 2px solid #4a6bff;
+    padding-bottom: 10px;
+}
+
+.modal-body p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.modal-body strong {
+    color: #2c3e50;
+}
+
+.modal-body ul {
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+.modal-body li {
+    margin-bottom: 8px;
+    color: #555;
+}
+
+/* Styles spécifiques pour les sections dans les modals */
+.modal-body section {
+    margin-bottom: 20px;
+}
+
+.modal-body section h3 {
+    color: #4a6bff;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+/* Styles pour les boutons dans les modals */
+.modal-body .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4a6bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background-color 0.3s;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.modal-body .btn:hover {
+    background-color: #3a5bef;
+}
+
+/* Styles pour les listes */
+.modal-body ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.modal-body ul li {
+    margin-bottom: 8px;
+}
+
+/* Styles pour les paragraphes importants */
+.modal-body .important {
+    background-color: #fff8e1;
+    padding: 15px;
+    border-left: 4px solid #ffc107;
+    margin: 20px 0;
+}
+
+.modal-body .important p {
+    margin-bottom: 0;
+}
+
+/* Animation pour les sections */
+.modal-body section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.modal-body section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+    </style>
+</head>
+<body>
+    <center><header>
+        <div class="container">
+            <div class="logo">
+                <h1><span>PREMIUM</span>Store</h1>
+                <p>Vos applications premium en un clic</p>
+            </div>
+        </div>
+    </header></center>
+
+    <main class="container">
+        <section class="hero">
+            <h2>Téléchargez les meilleures applications Android premium</h2>
+            <p>Accédez à des fonctionnalités exclusives sans restrictions</p>
+        </section>
+
+        <section id="apps" class="apps-grid">
+            <!-- Les applications seront chargées dynamiquement par app.js -->
+        </section>
+
+        <section id="about" class="about">
+            <h2>Pourquoi choisir notre store ?</h2>
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Sécurisé</h3>
+                    <p>Applications vérifiées sans malware</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Rapide</h3>
+                    <p>Téléchargement direct sans attente</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-headset"></i>
+                    <h3>Support</h3>
+                    <p>Assistance 24/7 pour vos problèmes</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-envelope"></i>mosaicdigital.pro@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +226 67 22 28 63</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Légal</h3>
+                   <ul>
+        <li><a href="#" onclick="openLegalModal('legalModal')">Mentions légales</a></li>
+        <li><a href="#" onclick="openLegalModal('cgvModal')">CGV</a></li>
+        <li><a href="#" onclick="openLegalModal('privacyModal')">Politique de confidentialité</a></li>
+    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Réseaux sociaux</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 MOSAIC DP. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <div id="appModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <!-- Contenu chargé dynamiquement -->
+            </div>
+        </div>
+    </div>
+<div id="legalModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div class="modal-body">
+            <h2>Conditions d'Utilisation</h2>
+
+            <section>
+                <h3>Éditeur du site</h3>
+                <p><strong>MOSAIC DIGITAL</strong></p>
+                <p>Téléphone : +226 53 56 94 79</p>
+                <p>Email : mosaicdigital.pro@gmail.com</p>
+                <p>Direction de la publication : MOSAIC DIGITAL PREMIUM</p>
+            </section>
+
+            <section>
+                <h3>Conditions d'utilisation</h3>
+                <p>L'utilisation du présent site implique l'acceptation pleine et entière des conditions générales d'utilisation décrites ci-après. Ces conditions d'utilisation sont susceptibles d'être modifiées ou complétées à tout moment.</p>
+                <p>En utilisant notre plateforme, vous acceptez de respecter les lois et réglementations en vigueur. Toute utilisation frauduleuse ou illégale de notre site est strictement interdite.</p>
+            </section>
+
+            <section>
+                <h3>Propriété intellectuelle</h3>
+                <p>Sauf mention contraire, tous les éléments accessibles sur le site (textes, images, graphismes, logo, icônes, sons, logiciels, etc.) restent la propriété exclusive de leurs auteurs, en ce qui concerne les droits de propriété intellectuelle ou les droits d’usage.</p>
+                <p>Toute reproduction, représentation, modification, publication, adaptation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite, sauf autorisation écrite préalable de l’auteur.</p>
+            </section>
+
+            <section>
+                <h3>Téléchargement des logiciels</h3>
+                <p>Après le paiement, les logiciels et outils premium sont disponibles pour téléchargement immédiat depuis notre site. Les liens de téléchargement sont valables pour une durée limitée et ne doivent pas être partagés.</p>
+                <p>Les logiciels téléchargés sont destinés à un usage personnel et ne doivent pas être redistribués ou utilisés à des fins commerciales sans autorisation préalable.</p>
+            </section>
+        </div>
+    </div>
+</div>
+
+<div id="cgvModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div class="modal-body">
+            <h2>Conditions Générales de Vente</h2>
+
+            <section>
+                <h3>Article 1 : Objet</h3>
+                <p>Les présentes conditions générales de vente (CGV) ont pour objet de définir les droits et obligations des parties dans le cadre de la vente en ligne d'applications et d'outils digitaux premium proposés par MOSAIC DIGITAL.</p>
+            </section>
+
+            <section>
+                <h3>Article 2 : Prix</h3>
+                <p>Les prix des produits vendus sont ceux en vigueur au moment de la commande. Ils sont indiqués en francs CFA (FCFA) et comprennent la TVA applicable au jour de la commande.</p>
+                <p>MOSAIC DIGITAL se réserve le droit de modifier ses prix à tout moment, étant entendu que le prix figurant au catalogue le jour de la commande sera le seul applicable à l’acheteur.</p>
+            </section>
+
+            <section>
+                <h3>Article 3 : Commande</h3>
+                <p>Les commandes sont passées via le site internet de MOSAIC DIGITAL. La validation de la commande implique l’acceptation intégrale des présentes CGV.</p>
+                <p>MOSAIC DIGITAL se réserve le droit d’annuler ou de refuser toute commande d’un client avec lequel il existerait un litige relatif au paiement d’une commande antérieure.</p>
+            </section>
+
+            <section>
+                <h3>Article 4 : Paiement</h3>
+                <p>Le paiement des produits s’effectue en ligne au moment de la commande par carte bancaire ou via les services de paiement mobile disponibles.</p>
+                <p>Le paiement est considéré comme effectué dès la validation de la commande par l’acheteur.</p>
+            </section>
+
+            <section>
+                <h3>Article 5 : Livraison</h3>
+                <p>Les produits sont livrés à l’adresse indiquée par l’acheteur lors de la commande. Les délais de livraison sont indiqués lors de la commande et dépendent du mode de livraison choisi.</p>
+                <p>En cas de retard de livraison, MOSAIC DIGITAL informera l’acheteur par email.</p>
+            </section>
+
+            <section>
+                <h3>Article 6 : Téléchargement</h3>
+                <p>Après le paiement, les logiciels et outils premium sont disponibles pour téléchargement immédiat depuis notre site. Les liens de téléchargement sont valables pour une durée limitée et ne doivent pas être partagés.</p>
+                <p>Les logiciels téléchargés sont destinés à un usage personnel et ne doivent pas être redistribués ou utilisés à des fins commerciales sans autorisation préalable.</p>
+            </section>
+        </div>
+    </div>
+</div>
+
+<div id="privacyModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div class="modal-body">
+            <h2>Politique de Confidentialité</h2>
+
+            <section>
+                <h3>Introduction</h3>
+                <p>MOSAIC DIGITAL s’engage à protéger la vie privée de ses utilisateurs. Cette politique de confidentialité explique comment nous collectons, utilisons et protégeons les informations personnelles que vous nous fournissez lorsque vous utilisez notre site internet.</p>
+            </section>
+
+            <section>
+                <h3>Collecte des informations</h3>
+                <p>Nous collectons les informations personnelles que vous nous fournissez volontairement lorsque vous passez une commande, créez un compte, ou contactez notre service client. Ces informations peuvent inclure votre nom, adresse email, adresse postale, numéro de téléphone, et informations de paiement.</p>
+            </section>
+
+            <section>
+                <h3>Utilisation des informations</h3>
+                <p>Les informations que nous collectons sont utilisées pour traiter et livrer vos commandes, vous fournir un support client, et vous envoyer des communications relatives à vos commandes et à nos services.</p>
+                <p>Nous pouvons également utiliser vos informations pour vous envoyer des offres promotionnelles, si vous avez donné votre consentement.</p>
+            </section>
+
+            <section>
+                <h3>Protection des informations</h3>
+                <p>Nous mettons en œuvre des mesures de sécurité appropriées pour protéger vos informations personnelles contre l’accès non autorisé, la divulgation, l’altération ou la destruction.</p>
+                <p>Vos informations de paiement sont cryptées et traitées de manière sécurisée.</p>
+            </section>
+
+            <section>
+                <h3>Cookies</h3>
+                <p>Notre site internet utilise des cookies pour améliorer votre expérience de navigation. Les cookies sont de petits fichiers texte stockés sur votre appareil qui nous permettent de reconnaître votre navigateur et de mémoriser certaines informations.</p>
+                <p>Vous pouvez désactiver les cookies dans les paramètres de votre navigateur, mais cela peut affecter certaines fonctionnalités de notre site.</p>
+            </section>
+
+            <section>
+                <h3>Droits des utilisateurs</h3>
+                <p>Conformément à la réglementation applicable, vous avez le droit d’accéder à vos informations personnelles, de les rectifier, de demander leur effacement, de limiter leur traitement, de vous opposer à leur traitement, et de demander la portabilité de vos données.</p>
+                <p>Vous pouvez exercer ces droits en nous contactant à l’adresse email suivante : mosaicdigital.pro@gmail.com.</p>
+            </section>
+        </div>
+    </div>
+</div>
+
+
+    <script>
+        // Données des applications
+const apkStore = [
+   {
+        id: 1,
+        name: "Canva Pro",
+        version: "2.175.0",
+        price: 1000,
+        category: "Design",
+        description: "Version premium de Canva avec accès à tous les modèles pro, éléments premium et fonctionnalités avancées de conception graphique.",
+        image: "img/canva-pro.jpeg",
+        paymentLink: "https://paylink.ligdicash.com/canva-pro",
+        features: [
+            "50+ millions d'images premium",
+            "100 000+ modèles professionnels",
+            "Suppression automatique de fond",
+            "Résolution d'image augmentée",
+            "Espace de stockage 100GB"
+        ]
+    },
+    {
+        id: 2,
+        name: "CapCut Pro",
+        version: "9.5.0",
+        price: 2000,
+        category: "Vidéo",
+        description: "Montage vidéo professionnel sans watermark avec tous les effets premium et assets exclusifs.",
+        image: "img/capcut-pro.jpg",
+        paymentLink: "https://paylink.ligdicash.com/capcut-pro",
+        features: [
+            "Suppression du watermark",
+            "100+ effets exclusifs",
+            "Assets premium illimités",
+            "Export 4K/60fps",
+            "Pas de publicité"
+        ]
+    },
+    {
+        id: 3,
+        name: "Telegram Premium",
+        version: "9.7.4",
+        price: 2000,
+        category: "Communication",
+        description: "Accédez à toutes les fonctionnalités premium de Telegram pour une expérience de messagerie améliorée.",
+        image: "img/telegram-premium.jpg",
+        paymentLink: "https://paylink.ligdicash.com/telegram-premium",
+        features: [
+            "Limite de chat augmentée",
+            "Taille de fichier 4GB",
+            "Vitesse de téléchargement max",
+            "Badge premium",
+            "Stickers animés exclusifs"
+        ]
+    },
+    {
+        id: 4,
+        name: "kineMaster Pro",
+        version: "4.17.2",
+        price: 3000,
+        category: "Vidéo",
+        description: "Application de montage vidéo professionnelle avec toutes les fonctionnalités premium débloquées.",
+        image: "img/kinemaster-pro.jpg",
+        paymentLink: "https://paylink.ligdicash.com/kinmaster-pro",
+        features: [
+            "Suppression du filigrane",
+            "Tous les effets premium",
+            "Assets exclusifs",
+            "Export en qualité maximale",
+            "Pas de limitation"
+        ]
+    },
+    {
+        id: 5,
+        name: "Photoroom Pro",
+        version: "1.9.3",
+        price: 1500,
+        category: "Photo",
+        description: "Éditeur photo AI avancé avec suppression de fond professionnelle et outils premium.",
+        image: "img/photoroom-pro.jpg",
+        paymentLink: "https://paylink.ligdicash.com/photoroom-pro",
+        features: [
+            "Suppression de fond instantanée",
+            "100+ filtres professionnels",
+            "Outils de retouche avancés",
+            "Pas de watermark",
+            "Résolution HD"
+        ]
+    },
+    {
+        id: 6,
+        name: "YouTube Premium",
+        version: "18.23.35",
+        price: 5000,
+        category: "Média",
+        description: "Profitez de YouTube sans publicités, avec lecture en arrière-plan et accès à YouTube Music.",
+        image: "img/youtube-premium.webp",
+        paymentLink: "https://paylink.ligdicash.com/youtube-premium",
+        features: [
+            "Zéro publicité",
+            "Lecture en arrière-plan",
+            "Téléchargement offline",
+            "Accès à YouTube Music",
+            "Qualité maximale"
+        ]
+    },
+    {
+        id: 7,
+        name: "TeraBox Pro",
+        version: "3.14.1",
+        price: 2000,
+        category: "Stockage",
+        description: "Stockage cloud premium avec 2TB d'espace et transfert à haute vitesse sans limitations.",
+        image: "img/terabox-pro.png",
+        paymentLink: "https://paylink.ligdicash.com/terabox-pro",
+        features: [
+            "2TB de stockage cloud",
+            "Transfert haute vitesse",
+            "Fichiers jusqu'à 20GB",
+            "Synchronisation automatique",
+            "Protection par mot de passe"
+        ]
+    },
+    {
+        id: 8,
+        name: "XRecorder Pro",
+        version: "2.3.8",
+        price: 1000,
+        category: "Utilitaires",
+        description: "Enregistreur d'écran premium sans filigrane ni limitation de durée avec qualité 4K.",
+        image: "img/xrecorder-pro.avif",
+        paymentLink: "https://paylink.ligdicash.com/xrecorder-pro",
+        features: [
+            "Enregistrement 4K/60fps",
+            "Pas de filigrane",
+            "Durée illimitée",
+            "Éditeur vidéo intégré",
+            "Pas de publicité"
+        ]
+    },
+    {
+        id: 9,
+        name: "YouCut Pro",
+        version: "1.181.2",
+        price: 2000,
+        category: "Vidéo",
+        description: "Éditeur vidéo tout-en-un avec toutes les fonctionnalités premium débloquées.",
+        image: "img/youcut-pro.jpg",
+        paymentLink: "https://paylink.ligdicash.com/youcut-pro",
+        features: [
+            "Tous les effets premium",
+            "Suppression du watermark",
+            "Export 4K sans perte",
+            "100+ transitions",
+            "Outils avancés"
+        ]
+    },
+    {
+        id: 10,
+        name: "PixelLab Pro",
+        version: "3.4.9",
+        price: 1000,
+        category: "Design",
+        description: "Éditeur de texte et graphique premium avec toutes les polices et effets débloqués.",
+        image: "img/pixellab-pro.jpg",
+        paymentLink: "https://paylink.ligdicash.com/pixellab-pro",
+        features: [
+            "1000+ polices premium",
+            "Effets de texte avancés",
+            "Pas de watermark",
+            "Outils 3D",
+            "Export HD"
+        ]
+    },
+    {
+        id: 11,
+        name: "Adobe Photoshop Pro",
+        version: "7.1.72",
+        price: 2000,
+        category: "Photo",
+        description: "Version mobile complète de Photoshop avec tous les outils professionnels débloqués.",
+        image: "img/photoshop-pro.jpg",
+        paymentLink: "https://paylink.ligdicash.com/photoshop-pro",
+        features: [
+            "Tous les outils pro",
+            "Calques illimités",
+            "Filtres premium",
+            "Prise en charge PSD",
+            "Export sans perte"
+        ]
+    },
+    {
+        id: 12,
+        name: "Netflix Premium",
+        version: "8.92.0",
+        price: 6000,
+        category: "Streaming",
+        description: "Accès complet à Netflix avec 4 écrans simultanés, Ultra HD et tous les contenus exclusifs.",
+        image: "img/netflix-premium.jpeg",
+        paymentLink: "https://paylink.ligdicash.com/netflix-premium",
+        features: [
+            "4 écrans simultanés",
+            "Qualité Ultra HD",
+            "Tous les contenus débloqués",
+            "Téléchargement offline",
+            "Pas de restrictions"
+        ]
+    },
+    {
+        id: 13,
+        name: "AdGUARD Premium",
+        version: "21.6.3",
+        price: 500,
+        category: "Sécurité",
+        description: "AdGuard Premium offre aux utilisateurs une application Android sans root qui supprime les publicités des applications et des navigateurs Web",
+        image: "img/adguard.jpeg",
+        paymentLink: "https://paylink.ligdicash.com/picsart-gold",
+        features: [
+            "Tutoriel de démarrage supprimé",
+            "Premium déverrouillé"
+        ]
+    },
+    {
+        id: 14,
+        name: "VivaCut Pro",
+        version: "316.0",
+        price: 1800,
+        category: "Photo",
+        description: "Vivacut Pro est l'une des meilleures applications qui permet aux utilisateurs d'Android d'éditer des vidéos de manière professionnelle.",
+        image: "img/viva-premium.jpeg",
+        paymentLink: "https://paylink.ligdicash.com/vsco-premium",
+        features: [
+            "Filigrane supprimé",
+            "Exportation 2K et 4K déverrouillée",
+            "Tous les filtres et effets déverrouillés"
+        ]
+    },
+    {
+        id: 15,
+        name: "Adobe Lightroom Pro",
+        version: "8.4.1",
+        price: 3000,
+        category: "Photo",
+        description: "Édition photo professionnelle avec tous les outils premium et presets débloqués.",
+        image: "img/lightroom-pro.png",
+        paymentLink: "https://paylink.ligdicash.com/lightroom-pro",
+        features: [
+            "Tous les outils pro",
+            "Presets premium",
+            "Édition RAW",
+            "Synchro cloud",
+            "Pas de watermark"
+        ]
+    },
+    {
+        id: 16,
+        name: "PowerDirector Pro",
+        version: "11.8.0",
+        price: 2800,
+        category: "Vidéo",
+        description: "Montage vidéo professionnel avec tous les effets et outils premium débloqués.",
+        image: "img/powerdirector-pro.jpeg",
+        paymentLink: "https://paylink.ligdicash.com/powerdirector-pro",
+        features: [
+            "Effets premium illimités",
+            "Montage multicaméra",
+            "Export 4K/60fps",
+            "Stabilisation vidéo",
+            "Pas de filigrane"
+        ]
+    },
+    {
+        id: 17,
+        name: "InShot Pro",
+        version: "1.92.1379",
+        price: 1500,
+        category: "Vidéo",
+        description: "Éditeur vidéo tout-en-un avec toutes les fonctionnalités premium débloquées.",
+        image: "img/inshot-pro.png",
+        paymentLink: "https://paylink.ligdicash.com/inshot-pro",
+        features: [
+            "Suppression du watermark",
+            "Tous les effets premium",
+            "Transition exclusives",
+            "Export haute qualité",
+            "Outils audio avancés"
+        ]
+    },
+    {
+        id: 18,
+        name: "FilmoraGo Pro",
+        version: "12.3.20",
+        price: 2200,
+        category: "Vidéo",
+        description: "Solution de montage vidéo facile avec tous les packs d'effets premium inclus.",
+        image: "img/filmorago-pro.jpeg",
+        paymentLink: "https://paylink.ligdicash.com/filmorago-pro",
+        features: [
+            "100+ effets cinématographiques",
+            "Suppression du filigrane",
+            "Musiques libres de droits",
+            "Outils de correction couleur",
+            "Export sans limitation"
+        ]
+    },
+    {
+        id: 19,
+        name: "Zoomerang pro",
+        version: "2.19.1",
+        price: 1200,
+        category: "Photo",
+        description: "Zoomerang Pro est une application de création vidéo qui vous aide à faire de votre clip vidéo la star de TikTok et d'Instagram. Avec plus de 100 didacticiels étape par étape, vous pouvez créer des vidéos étonnantes en suivant simplement les étapes simples.",
+        image: "img/zoomerang-pro.png",
+        paymentLink: "https://paylink.ligdicash.com/snapseed-pro",
+        features: [
+            " Annonces supprimées",
+            "Tous les filtres déverrouillés"
+        ]
+    },
+   
+    {
+        id: 20,
+        name: "Shazam Premium",
+        version: "12.41.0",
+        price: 1000,
+        category: "Musique",
+        description: "Identification illimitée de musiques sans publicités et avec fonctionnalités avancées.",
+        image: "img/shazam-premium.jpeg",
+        paymentLink: "https://paylink.ligdicash.com/shazam-premium",
+        features: [
+            "Identification illimitée",
+            "Mode hors ligne",
+            "Historique illimité",
+            "Pas de publicité",
+            "Liens vers plateformes"
+        ]
+    },
+    {
+        id: 21,
+        name: "Duolingo Plus",
+        version: "5.101.4",
+        price: 3000,
+        category: "Éducation",
+        description: "Apprentissage de langues sans publicités avec leçons hors ligne et progression illimitée.",
+        image: "img/duolingo-plus.jpeg",
+        paymentLink: "https://paylink.ligdicash.com/duolingo-plus",
+        features: [
+            "Cours sans publicité",
+            "Leçons hors ligne",
+            "Corrections illimitées",
+            "Suivi de progression",
+            "Contenu exclusif"
+        ]
+    }
+];
+
+// DOM Elements
+const appsGrid = document.querySelector('.apps-grid');
+const modal = document.getElementById('appModal');
+const modalBody = document.querySelector('.modal-body');
+const closeModal = document.querySelector('.close-modal');
+
+// Nouvelle fonction pour afficher les catégories
+function renderCategories() {
+    const categories = [...new Set(apkStore.map(app => app.category))];
+    const categoriesContainer = document.createElement('div');
+    categoriesContainer.className = 'categories';
+    
+    // Bouton "Tous"
+    const allButton = document.createElement('button');
+    allButton.textContent = 'Tous';
+    allButton.className = 'category-btn active';
+    allButton.onclick = () => {
+        document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
+        allButton.classList.add('active');
+        renderApps();
+    };
+    categoriesContainer.appendChild(allButton);
+    
+    // Boutons par catégorie
+    categories.forEach(category => {
+        const button = document.createElement('button');
+        button.textContent = category;
+        button.className = 'category-btn';
+        button.onclick = () => {
+            document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            filterAppsByCategory(category);
+        };
+        categoriesContainer.appendChild(button);
+    });
+    
+    appsGrid.parentNode.insertBefore(categoriesContainer, appsGrid);
+}
+
+// Filtrer les apps par catégorie
+function filterAppsByCategory(category) {
+    const filteredApps = apkStore.filter(app => app.category === category);
+    renderApps(filteredApps);
+}
+
+// Afficher les applications avec la section de contact
+function renderApps(apps = apkStore) {
+    appsGrid.innerHTML = '';
+    
+    if (apps.length === 0) {
+        appsGrid.innerHTML = '<p class="no-apps">Aucune application dans cette catégorie.</p>';
+        addContactSection();
+        return;
+    }
+    
+    apps.forEach(app => {
+        const appCard = document.createElement('div');
+        appCard.className = 'app-card';
+        appCard.innerHTML = `
+            <div class="app-image">
+                <img src="${app.image}" alt="${app.name}" loading="lazy">
+            </div>
+            <div class="app-info">
+                <h3>${app.name}</h3>
+                <p>${app.description}</p>
+                <div class="app-meta">
+                    <span class="price">FCFA${app.price.toFixed(2)}</span>
+                    <span class="version">v${app.version}</span>
+                    <span class="category">${app.category}</span>
+                </div>
+                <button class="btn" onclick="openModal(${app.id})">Acheter Maintenant</button>
+            </div>
+        `;
+        appsGrid.appendChild(appCard);
+    });
+    
+    // Ajouter la section de contact après les applications
+    addContactSection();
+}
+
+// Ajouter la section de contact WhatsApp
+function addContactSection() {
+    const contactSection = document.createElement('div');
+    contactSection.className = 'contact-promo';
+    contactSection.innerHTML = `
+        <div class="contact-content">
+            <h3>Vous ne trouvez pas votre logiciel premium ?</h3>
+            <p>Contactez-nous directement sur WhatsApp pour une demande spéciale</p>
+            <a href="https://wa.me/22653569479?text=Bonjour%20MOSAICPremium,%20je%20souhaiterais%20obtenir%20**%5BNom%20de%20l'application%5D**%20qui%20n'est%20pas%20dans%20votre%20catalogue.%20Pouvez-vous%20m'aider%20?" 
+               class="whatsapp-contact-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> Nous contacter
+            </a>
+        </div>
+    `;
+    appsGrid.appendChild(contactSection);
+}
+
+// Ouvrir le modal avec les détails de l'application
+function openModal(appId) {
+    const app = apkStore.find(a => a.id === appId);
+
+    if (app) {
+        modalBody.innerHTML = `
+            <h2>${app.name}</h2>
+            <div class="app-modal-content">
+                <img src="${app.image}" alt="${app.name}" style="width:100%; border-radius:8px; margin-bottom:20px;">
+                <p><strong>Version:</strong> ${app.version}</p>
+                <p><strong>Prix:</strong> FCFA${app.price.toFixed(2)}</p>
+                <h3>Fonctionnalités:</h3>
+                <ul style="margin-bottom:20px;">
+                    ${app.features.map(f => `<li>${f}</li>`).join('')}
+                </ul>
+                <button class="btn" onclick="handlePayment('${app.paymentLink}')">Procéder au paiement</button>
+            </div>
+        `;
+
+        modal.classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+}
+// Gérer le paiement et la redirection
+function handlePayment(paymentLink) {
+    // Ouvrir le lien de paiement dans un iframe dans le modal
+    modalBody.innerHTML = `
+        <h2>Paiement en cours</h2>
+        <div class="payment-container">
+            <iframe src="${paymentLink}" width="100%" height="500px" frameborder="0"></iframe>
+        </div>
+        <p style="color: #28a745; font-style: italic; font-weight: bold; text-align: center; font-size: 1.2em;">
+    Après le paiement, vous serez redirigé vers la page de téléchargement.
+</p>
+
+    `;
+
+    // Écouter les changements dans l'iframe pour détecter la redirection
+    const iframe = document.querySelector('iframe');
+    let checkRedirect;
+
+    iframe.onload = function() {
+        clearInterval(checkRedirect);
+        checkRedirect = setInterval(function() {
+            try {
+                // Vérifier si l'iframe a été redirigée
+                const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                const currentUrl = iframeDoc.location.href;
+
+                // Si l'URL contient whatsapp, rediriger vers WhatsApp
+                if (currentUrl.includes('whatsapp')) {
+                    clearInterval(checkRedirect);
+                    window.location.href = currentUrl;
+                }
+                // Si l'URL est un lien de téléchargement, afficher le contenu dans le modal
+                else if (currentUrl.includes('download') || currentUrl.includes('telechargement')) {
+                    clearInterval(checkRedirect);
+                    modalBody.innerHTML = `
+                        <h2>Téléchargement</h2>
+                        <div class="download-container">
+                            <iframe src="${currentUrl}" width="100%" height="500px" frameborder="0"></iframe>
+                        </div>
+                        <p>Votre téléchargement devrait commencer automatiquement.</p>
+                    `;
+                }
+            } catch (e) {
+                // L'erreur se produit lorsque l'iframe est sur un domaine différent (cross-origin)
+                // Dans ce cas, nous ne pouvons pas vérifier l'URL
+            }
+        }, 1000);
+    };
+}
+
+
+// Fermer le modal
+function closeModalFunc() {
+    modal.classList.remove('show');
+    document.body.style.overflow = 'auto';
+}
+
+// Simulation de recherche
+function searchApps(query) {
+    const filteredApps = apkStore.filter(app => 
+        app.name.toLowerCase().includes(query.toLowerCase()) || 
+        app.description.toLowerCase().includes(query.toLowerCase())
+    );
+    
+    renderApps(filteredApps);
+}
+
+// Initialisation
+document.addEventListener('DOMContentLoaded', () => {
+    renderCategories();
+    renderApps();
+    
+    // Animation au scroll
+    const animateOnScroll = () => {
+        const elements = document.querySelectorAll('.app-card, .feature');
+        
+        elements.forEach(el => {
+            const elPosition = el.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight / 1.2;
+            
+            if (elPosition < screenPosition) {
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            }
+        });
+    };
+    
+    // Initial state for animation
+    const cards = document.querySelectorAll('.app-card, .feature');
+    cards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    });
+    
+    window.addEventListener('scroll', animateOnScroll);
+    animateOnScroll();
+});
+
+// Événements
+closeModal.addEventListener('click', closeModalFunc);
+window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        closeModalFunc();
+    }
+});
+// Fonction pour ouvrir les modals légaux
+function openLegalModal(modalId) {
+    const modal = document.getElementById(modalId);
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+
+// Fermer le modal
+function closeModalFunc() {
+    document.querySelectorAll('.modal').forEach(modal => {
+        modal.classList.remove('show');
+    });
+    document.body.style.overflow = 'auto';
+}
+
+// Événements pour fermer les modals
+document.querySelectorAll('.close-modal').forEach(closeBtn => {
+    closeBtn.addEventListener('click', closeModalFunc);
+});
+
+window.addEventListener('click', (e) => {
+    if (e.target.classList.contains('modal')) {
+        closeModalFunc();
+    }
+});
+// Fonction pour ouvrir les modals légaux
+function openLegalModal(modalId) {
+    const modal = document.getElementById(modalId);
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+
+    const sections = modal.querySelectorAll('.modal-body section');
+    sections.forEach((section, index) => {
+        setTimeout(() => {
+            section.classList.add('visible');
+        }, index * 200);
+    });
+}
+
+// Fermer le modal
+function closeModalFunc() {
+    document.querySelectorAll('.modal').forEach(modal => {
+        modal.classList.remove('show');
+    });
+    document.body.style.overflow = 'auto';
+
+    document.querySelectorAll('.modal-body section').forEach(section => {
+        section.classList.remove('visible');
+    });
+}
+
+// Événements pour fermer les modals
+document.querySelectorAll('.close-modal').forEach(closeBtn => {
+    closeBtn.addEventListener('click', closeModalFunc);
+});
+
+window.addEventListener('click', (e) => {
+    if (e.target.classList.contains('modal')) {
+        closeModalFunc();
+    }
+});
+
+    </script>
+</body>
+</html>
