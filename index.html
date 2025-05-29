@@ -1084,7 +1084,7 @@ footer {
 
 
     <script>
-        // Données des applications
+      // Données des applications
 const apkStore = [
    {
         id: 1,
@@ -1275,7 +1275,7 @@ const apkStore = [
     },
     {
         id: 12,
-        name: "Netflix Premium",
+        name: "Netflix Premium à vie",
         version: "8.92.0",
         price: 6000,
         category: "Streaming",
@@ -1526,7 +1526,7 @@ function addContactSection() {
         <div class="contact-content">
             <h3>Vous ne trouvez pas votre logiciel premium ?</h3>
             <p>Contactez-nous directement sur WhatsApp pour une demande spéciale</p>
-            <a href="https://wa.me/22653569479?text=Bonjour%20MOSAICPremium,%20je%20souhaiterais%20obtenir%20**%5BNom%20de%20l'application%5D**%20qui%20n'est%20pas%20dans%20votre%20catalogue.%20Pouvez-vous%20m'aider%20?" 
+            <a href="https://wa.me/22667222863?text=Bonjour%20MOSAICPremium,%20je%20souhaiterais%20obtenir%20**%5BNom%20de%20l'application%5D**%20qui%20n'est%20pas%20dans%20votre%20catalogue.%20Pouvez-vous%20m'aider%20?" 
                class="whatsapp-contact-btn" target="_blank">
                 <i class="fab fa-whatsapp"></i> Nous contacter
             </a>
@@ -1538,7 +1538,7 @@ function addContactSection() {
 // Ouvrir le modal avec les détails de l'application
 function openModal(appId) {
     const app = apkStore.find(a => a.id === appId);
-
+    
     if (app) {
         modalBody.innerHTML = `
             <h2>${app.name}</h2>
@@ -1550,64 +1550,14 @@ function openModal(appId) {
                 <ul style="margin-bottom:20px;">
                     ${app.features.map(f => `<li>${f}</li>`).join('')}
                 </ul>
-                <button class="btn" onclick="handlePayment('${app.paymentLink}')">Procéder au paiement</button>
+                <a href="${app.paymentLink}" class="btn" style="display:block; text-align:center;">Procéder au paiement</a>
             </div>
         `;
-
+        
         modal.classList.add('show');
         document.body.style.overflow = 'hidden';
     }
 }
-// Gérer le paiement et la redirection
-function handlePayment(paymentLink) {
-    // Ouvrir le lien de paiement dans un iframe dans le modal
-    modalBody.innerHTML = `
-        <h2>Paiement en cours</h2>
-        <div class="payment-container">
-            <iframe src="${paymentLink}" width="100%" height="500px" frameborder="0"></iframe>
-        </div>
-        <p style="color: #28a745; font-style: italic; font-weight: bold; text-align: center; font-size: 1.2em;">
-    Après le paiement, vous serez redirigé vers la page de téléchargement.
-</p>
-
-    `;
-
-    // Écouter les changements dans l'iframe pour détecter la redirection
-    const iframe = document.querySelector('iframe');
-    let checkRedirect;
-
-    iframe.onload = function() {
-        clearInterval(checkRedirect);
-        checkRedirect = setInterval(function() {
-            try {
-                // Vérifier si l'iframe a été redirigée
-                const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-                const currentUrl = iframeDoc.location.href;
-
-                // Si l'URL contient whatsapp, rediriger vers WhatsApp
-                if (currentUrl.includes('whatsapp')) {
-                    clearInterval(checkRedirect);
-                    window.location.href = currentUrl;
-                }
-                // Si l'URL est un lien de téléchargement, afficher le contenu dans le modal
-                else if (currentUrl.includes('download') || currentUrl.includes('telechargement')) {
-                    clearInterval(checkRedirect);
-                    modalBody.innerHTML = `
-                        <h2>Téléchargement</h2>
-                        <div class="download-container">
-                            <iframe src="${currentUrl}" width="100%" height="500px" frameborder="0"></iframe>
-                        </div>
-                        <p>Votre téléchargement devrait commencer automatiquement.</p>
-                    `;
-                }
-            } catch (e) {
-                // L'erreur se produit lorsque l'iframe est sur un domaine différent (cross-origin)
-                // Dans ce cas, nous ne pouvons pas vérifier l'URL
-            }
-        }, 1000);
-    };
-}
-
 
 // Fermer le modal
 function closeModalFunc() {
@@ -1669,32 +1619,8 @@ function openLegalModal(modalId) {
     const modal = document.getElementById(modalId);
     modal.classList.add('show');
     document.body.style.overflow = 'hidden';
-}
 
-// Fermer le modal
-function closeModalFunc() {
-    document.querySelectorAll('.modal').forEach(modal => {
-        modal.classList.remove('show');
-    });
-    document.body.style.overflow = 'auto';
-}
-
-// Événements pour fermer les modals
-document.querySelectorAll('.close-modal').forEach(closeBtn => {
-    closeBtn.addEventListener('click', closeModalFunc);
-});
-
-window.addEventListener('click', (e) => {
-    if (e.target.classList.contains('modal')) {
-        closeModalFunc();
-    }
-});
-// Fonction pour ouvrir les modals légaux
-function openLegalModal(modalId) {
-    const modal = document.getElementById(modalId);
-    modal.classList.add('show');
-    document.body.style.overflow = 'hidden';
-
+    // Ajouter une animation pour les sections du modal
     const sections = modal.querySelectorAll('.modal-body section');
     sections.forEach((section, index) => {
         setTimeout(() => {
@@ -1703,13 +1629,14 @@ function openLegalModal(modalId) {
     });
 }
 
-// Fermer le modal
+// Fonction pour fermer les modals
 function closeModalFunc() {
     document.querySelectorAll('.modal').forEach(modal => {
         modal.classList.remove('show');
     });
     document.body.style.overflow = 'auto';
 
+    // Retirer l'animation des sections du modal
     document.querySelectorAll('.modal-body section').forEach(section => {
         section.classList.remove('visible');
     });
@@ -1720,6 +1647,7 @@ document.querySelectorAll('.close-modal').forEach(closeBtn => {
     closeBtn.addEventListener('click', closeModalFunc);
 });
 
+// Fermer le modal si on clique en dehors de celui-ci
 window.addEventListener('click', (e) => {
     if (e.target.classList.contains('modal')) {
         closeModalFunc();
